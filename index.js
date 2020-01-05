@@ -344,6 +344,19 @@ var ctrl = function(err, p, ctx) {
       });
     },
 
+    setvol: function(){
+      // set volume to 15%
+      p.setVolume(.15, function(err, status) {
+        if (err) {
+          return;
+        }
+
+        debug("volume up: %s", status.level);
+
+        volume = status;
+      });
+    },
+
     // next item in playlist
     n: function() {
       nextInPlaylist();
